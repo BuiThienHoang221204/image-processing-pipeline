@@ -25,7 +25,9 @@ class CaptureImages(Pipeline):
 
                 data = {
                     "image_id": image_file,
-                    "image": image
+                    "image": image,
+                    "original_width": image.shape[1] if image is not None else 0,
+                    "original_height": image.shape[0] if image is not None else 0
                 }
 
                 if self.filter(data):
